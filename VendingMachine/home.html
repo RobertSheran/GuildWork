@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery HTML Element Lab</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/sticky-footer.css" rel="stylesheet">
+    <link href="css/eq-height-row.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id='page-title'>
+        <h1>Vending Machine</h1>
+        <hr/>
+    </div>
+
+    <div class="container">
+        <div class="col-md-9">
+            <div id="items-container" class="row">
+
+
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div id="money-in">
+                <form>
+                    <div class="form-group">
+                        <label for="add-money" class="col-md-4 controle-lable">
+                            Total $ In:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control" id="add-money" placeholder="0" required/>
+                        </div>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <button type="button" id="add-dolor-button" class="btn btn-default">
+                                ADD Dolor
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-shift-right-6 col-md-6">
+                            <button type="button" id="add-quarter-button" class="btn btn-default">
+                                ADD Quarter
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <button type="button" id="add-dime-button" class="btn btn-default">
+                                ADD Dime
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-shift-right 6 col-md-6">
+                            <button type="button" id="add-nickle-button" class="btn btn-default">
+                                ADD Nickle
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+            <hr>
+            <br>
+            <br>
+            <hr>
+
+            <div id="message-and-item">
+                <form>
+                    <div class="form-group">
+                        <label for="message-lable" class="col-md-4 controle-lable">
+                            Message:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="message-lable" placeholder="Message" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-lable" class="col-md-4 controle-lable">
+                            Item:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="item-lable" placeholder="item" required/>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <div class="col-shift-right 6 col-md-6">
+                            <button type="button" id="perchace-button" class="btn btn-default">
+                                Make Perchace
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+            <hr>
+
+            <div>
+                <form>
+                    <div class="form-group">
+                        <label for="change-lable" class="col-md-4 controle-lable">
+                            Change:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="change-lable" placeholder="0" required/>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <div class="col-shift-right 6 col-md-6">
+                            <button type="button" id="return-change-button" class="btn btn-default">
+                                Return Change
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

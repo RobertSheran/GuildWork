@@ -1,0 +1,10 @@
+CREATE PROCEDURE EFGetById(
+@DVDId int
+)
+AS
+
+SELECT *
+FROM DVDs
+Where DVDs.DVDId=@DVDId
+
+GO
