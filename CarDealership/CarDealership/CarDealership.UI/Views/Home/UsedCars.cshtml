@@ -1,0 +1,92 @@
+﻿@model IEnumerable<CarDealership.UI.Models.CarViewModel>
+
+@{
+    ViewBag.Title = "UsedCars";
+}
+
+<h2>Used Cars</h2>
+
+<div class="row">
+
+    <div class="col-xs-12">
+
+        <div class="form-group">
+            <lable for="minRate">Min Price</lable>
+            <input type="text" class="form-control" id="minRate" />
+        </div>
+        <div class="form-group">
+            <lable for="maxRate">Max Price</lable>
+            <input type="text" class="form-control" id="maxRate" />
+        </div>
+        <div class="form-group">
+            <lable for="minYear">Min Year</lable>
+            <input type="text" class="form-control" id="minYear" />
+        </div>
+        <div class="form-group">
+            <lable for="maxYear">Max Year</lable>
+            <input type="text" class="form-control" id="maxYear" />
+        </div>
+        <div class="form-group">
+            <lable for="make">Make/Model</lable>
+            <input type="text" class="form-control" id="make" />
+        </div>
+
+        <button type="button" onclick="SearchUsed()" class="btn btn-default">Search</button>
+    </div>
+
+</div>
+<div class="row">
+    <div id="searchResults" class="col-xs-12">
+
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#searchForm').submit(function (e){
+                SearchUsed();
+                return false;
+            });
+        });
+        function SearchUsed()
+        {
+            var params;
+            var imagePath = '@Url.Content("~/Images/")';
+            var detailsPath = '@Url.Action("Details", "Home")'
+            params = 'MinPrice=' + $('#minRate').val() + '&MaxPrice=' + $('#maxRate').val() + '&MinYear=' + $('#minYear').val() + '&MaxYear=' + $('#maxYear').val() + '&Make=' + $('#make').val() +
+                '&Model=' + $('#model').val();
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:57910/api/listings/searchUsed?'+params,
+                success: function (results) {
+                    $('#searchResults').empty();
+                    $.each(results, function (UsedCars, listing) {
+
+                        var html = '<div class= "col-xs-12 col-sm-6 col-md-4">' +
+                            '<p class="listing"><img src="' + imagePath + listing.Photo + '"HEIGHT="200" WIDTH="200" BORDER="0"/></p>' +
+                            '<p class="listing">Make ' + listing.CarMake + '</p> ' +
+                            '<p class="listing">Model ' + listing.CarModel + '</p > ' +
+                            '<p class="listing">Year ' + listing.Year + '</p > ' +
+                            '<p class="listing">Price ' + listing.Price + '</p > ' +
+                            '<p class="listing"><a href="' + detailsPath +"/"+ listing.CarId + '">view details</a></p >' +
+                            '</div>'
+
+                        $('#searchResults').append(html.toString());
+
+                    });
+
+                },
+                error: function () {
+                    alert('Error: Try Again Later')
+                }
+
+            });
+
+        }
+
+    </script>
+
+}

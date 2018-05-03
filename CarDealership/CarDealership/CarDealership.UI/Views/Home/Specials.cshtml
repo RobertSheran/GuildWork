@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CarDealership.UI.Models.SpecialViewModel>
+
+@{
+    ViewBag.Title = "Specials";
+}
+
+<h2>Specials</h2>
+
+@{
+    if (User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "CreateSpecial")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpecialId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpecialMessage)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SpecialId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SpecialMessage)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteSpecialOffer", new { id=item.SpecialId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpecialMessage)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SpecialMessage)
+                    </td>
+               
+                </tr>
+            }
+
+        </table>
+    }
+}
+

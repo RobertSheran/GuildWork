@@ -1,0 +1,235 @@
+﻿@model CarDealership.UI.Models.PurchaseViewModel
+
+@{
+    ViewBag.Title = "Buy";
+}
+
+<h2>Buy</h2>
+
+<dl class="dl-horizontal">
+    @Html.ValidationSummary()
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Photo)
+    </dt>
+
+    <dd>
+        <img src="@Url.Content($"~/Images/{Model.Car.Photo}")" class="img-responsive" />
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.CarModel)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.CarModel)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.CarMake)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.CarMake)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Price)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.Price)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Year)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.Year)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Vin)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.Vin)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.MSRP)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.MSRP)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.InteriorColor)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.InteriorColor)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Transmission)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.Transmission)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.CarType)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.CarType)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Color)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.Color)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Mileage)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.Mileage)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.BodyStyle)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.BodyStyle)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Car.Discription)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Car.Discription)
+    </dd>
+
+</dl>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>PurchaseViewModel</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.PerchaseType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.PerchaseType, Model.PaymentTypes, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PerchaseType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.HiddenFor(model => model.CarId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InvoiceState, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.InvoiceState, Model.States, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.InvoiceState, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StreetOne, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StreetOne, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StreetOne, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StreetTwo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StreetTwo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StreetTwo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InvoiceName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InvoiceName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.InvoiceName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Buy" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

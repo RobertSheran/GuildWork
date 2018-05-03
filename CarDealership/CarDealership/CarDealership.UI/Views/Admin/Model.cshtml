@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CarDealership.UI.Models.CarModelView>
+
+@{
+    ViewBag.Title = "Model";
+}
+
+<h2>Model</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCarModel")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarModelName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarModelName)
+        </td>
+ 
+        <td>
+            @Html.ActionLink("Delete", "DeleteModel", new { id=item.CarModelId })
+        </td>
+    </tr>
+}
+
+</table>

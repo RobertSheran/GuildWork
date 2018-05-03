@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CarDealership.UI.Models.CarMakeView>
+
+@{
+    ViewBag.Title = "Make";
+}
+
+<h2>Make</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateMake")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MakeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakeName)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "DeleteMake", new { id=item.MakeId })
+        </td>
+    </tr>
+}
+
+</table>

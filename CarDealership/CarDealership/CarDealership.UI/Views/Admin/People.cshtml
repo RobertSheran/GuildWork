@@ -1,0 +1,51 @@
+﻿@model CarDealership.UI.Models.GroupedViewModel
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>People</h2>
+@Html.ActionLink("Add a new User", "AddUser")
+<div>
+    <h3>Sellers</h3>
+    <table class="table-striped table">
+        <thead>
+            <tr>
+                <th>Email</th>
+
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Sellers)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>@Html.ActionLink("Edit", "EditUser", new { id = user.Id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>Administrators</h3>
+    <table class="table-striped table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Admins)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>@Html.ActionLink("Edit", "EditUser", new { id = user.Id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
