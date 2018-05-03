@@ -1,12 +1,12 @@
 HOW TO SET UP THE DATABASE!!!
 
-OPEN and EXICUTE the "CreateCarDb" SQL query file, located in the SQL file.
+OPEN and EXICUTE the "CreateCarDb" SQL query file, located in the SQL folder.
 
-OPEN _____ solution located in the CarDealership folder. 
+OPEN "CarDealership" SOLUTION located in the CarDealership folder. 
 
 RUN the update-database command in the package manager in visual studio. 
 
-OPEN and EXICUTE the "CarDbTablesReplacer" SQL query file, located in the SQL file.
+OPEN and EXICUTE the "CarDbTablesReplacer" SQL query file, located in the SQL folder.
 
 
 
